@@ -1,0 +1,97 @@
+<html>
+  <head>
+    <title>Vier Gewinnt</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    
+    <script defer type="module" src="./app.js"></script>
+    <script src="https://www.myersdaily.org/joseph/javascript/md5.js"></script>
+    <link rel="stylesheet" type="text/css" href="./app.css"/>
+  </head>
+
+  <body>
+    <nav>
+      <span class="navButton" id="lobby">Lobby</span>
+      <span class="navButton hidden" id="game">Game</span>
+    </nav>
+
+    <div id="container">
+      <div class="chat-container hidden" id="chatContainer">
+        <div class="top" id="chatTop">
+          <span>Lobby-Chat</span>
+        </div>
+
+        <div class="body">
+          <div class="messages" id="lobbyMessages">
+          </div>
+          <div class="messages hidden" id="gameMessages">
+          </div>
+          <form id="chatForm" data-chat="lobby">
+            <input type="text" class="chat-input" id="chatInput" name="message" placeholder="Nachricht" autocomplete="off" required>
+            <button class="chat-button">Senden</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="sites hidden" id="lobbyContainer">
+        <form class="user-data" id="signInForm">
+          <label for="username">E-Mail:</label>
+          <input type="email" class="lobby-input" id="eMailInput" name="username" placeholder="E-Mail" required>
+          <button class="lobby-button">Anmelden</button>
+        </form>
+
+        <form class="room-data hidden" id="roomForm">
+          <label for="room">Raum:</label>
+          <select class="lobby-input" id="roomInput" name="room" required>
+            <option value="room1">Raum 1</option>
+            <option value="room2">Raum 2</option>
+            <option value="room3">Raum 3</option>
+            <option value="room4">Raum 4</option>
+          </select>
+          <button class="lobby-button">Beitreten</button>
+        </form>
+      </div>
+
+      <div class="sites hidden" id="gameContainer">
+        <div>
+          <div class="playfield" id="playfield">
+            <div class="cell drag" data-colmn="0">
+              <svg>
+                <circle cx="50%" cy="50%" r="50%" fill="darkblue"></circle>
+              </svg>
+            </div>
+          </div>
+          <div class="game-text" id="gameText">
+            Du bist dran
+          </div>
+          <div class="reset-game hidden" id="resetButton">
+            Reset
+          </div>
+          <div class="leave-game" id="leaveButton">
+            Verlassen
+          </div>
+
+          <audio src="./templates/victory.mp3" preload="true" id="victoryAudio"></audio>
+          <audio src="./templates/ding.mp3" preload="true" id="dingAudio"></audio>
+        </div>
+
+        <div class="player-container" id="playerContainer">
+          <div id="playerName">Spieler...</div>
+          <img id="playerImage" draggable="false">
+        </div>
+
+        <div class="opponent-container" id="opponentContainer">
+          <div id="opponentName">Gegner...</div>
+          <img id="opponentImage" draggable="false">
+        </div>
+
+        <div class="chips">
+          <div class="chip" draggable="true" id="chip">
+            <svg>
+              <circle cx="50%" cy="50%" r="50%" fill="red"></circle>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
